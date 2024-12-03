@@ -1,0 +1,601 @@
+@base <http://www.semanticweb.org/ser531/ontologies-group11/itp> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix itp: <http://www.semanticweb.org/team11/ontologies/2024/10/itp#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+itp:1935_W_Dunlap_Ave_Phoenix a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "1935_W_Dunlap_Ave_Phoenix";
+  itp:hasNameTrainStation "19th Ave / Dunlap";
+  itp:hasAddressTrainStation "1935 W Dunlap Ave"^^itp:string;
+  itp:TrainStationLocatedIn itp:Phoenix;
+  itp:hasLongitudeTrainStation -1.120993888E2;
+  itp:hasLatitudeTrainStation 3.356708951E1;
+  geo:hasGeometry <itp/POINT(-112.0993888_33.56708951)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+itp:Phoenix a itp:City .
+
+<itp/POINT(-112.0993888_33.56708951)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-112.0993888 33.56708951)"^^geo:wktLiteral .
+
+itp:26_East_Main_Street_Mesa a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "26_East_Main_Street_Mesa";
+  itp:hasNameTrainStation "Center / Main St";
+  itp:hasAddressTrainStation "26 East Main Street"^^itp:string;
+  itp:TrainStationLocatedIn itp:Mesa;
+  itp:hasLongitudeTrainStation -1.1183066039E2;
+  itp:hasLatitudeTrainStation 3.341509754E1;
+  geo:hasGeometry <itp/POINT(-111.83066039_33.41509754)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+itp:Mesa a itp:City .
+
+<itp/POINT(-111.83066039_33.41509754)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-111.83066039 33.41509754)"^^geo:wktLiteral .
+
+itp:7832_N_19th_Ave_Phoenix a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "7832_N_19th_Ave_Phoenix";
+  itp:hasNameTrainStation "Northern / 19th Ave";
+  itp:hasAddressTrainStation "7832 N 19th Ave"^^itp:string;
+  itp:TrainStationLocatedIn itp:Phoenix;
+  itp:hasLongitudeTrainStation -1.1209935953E2;
+  itp:hasLatitudeTrainStation 3.355318964E1;
+  geo:hasGeometry <itp/POINT(-112.09935953_33.55318964)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-112.09935953_33.55318964)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-112.09935953 33.55318964)"^^geo:wktLiteral .
+
+itp:6813_N_19th_Ave_Phoenix a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "6813_N_19th_Ave_Phoenix";
+  itp:hasNameTrainStation "Glendale / 19th Ave";
+  itp:hasAddressTrainStation "6813 N 19th Ave"^^itp:string;
+  itp:TrainStationLocatedIn itp:Phoenix;
+  itp:hasLongitudeTrainStation -1.1209932892E2;
+  itp:hasLatitudeTrainStation 3.353864324E1;
+  geo:hasGeometry <itp/POINT(-112.09932892_33.53864324)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-112.09932892_33.53864324)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-112.09932892 33.53864324)"^^geo:wktLiteral .
+
+itp:4203_East_Washington_Street_Phoenix a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "4203_East_Washington_Street_Phoenix";
+  itp:hasNameTrainStation "44th St / Washington";
+  itp:hasAddressTrainStation "4203 East Washington Street"^^itp:string;
+  itp:TrainStationLocatedIn itp:Phoenix;
+  itp:hasLongitudeTrainStation -1.1198798314E2;
+  itp:hasLatitudeTrainStation 3.344816993E1;
+  geo:hasGeometry <itp/POINT(-111.98798314_33.44816993)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-111.98798314_33.44816993)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-111.98798314 33.44816993)"^^geo:wktLiteral .
+
+itp:702_West_Washington_Street_Tempe a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "702_West_Washington_Street_Tempe";
+  itp:hasNameTrainStation "Center Pkwy / Washington";
+  itp:hasAddressTrainStation "702 West Washington Street"^^itp:string;
+  itp:TrainStationLocatedIn itp:Tempe;
+  itp:hasLongitudeTrainStation -1.1194662735E2;
+  itp:hasLatitudeTrainStation 3.34380634E1;
+  geo:hasGeometry <itp/POINT(-111.94662735_33.4380634)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+itp:Tempe a itp:City .
+
+<itp/POINT(-111.94662735_33.4380634)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-111.94662735 33.4380634)"^^geo:wktLiteral .
+
+itp:3763_East_Washington_Street_Phoenix a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "3763_East_Washington_Street_Phoenix";
+  itp:hasNameTrainStation "38th St / Washington";
+  itp:hasAddressTrainStation "3763 East Washington Street"^^itp:string;
+  itp:TrainStationLocatedIn itp:Phoenix;
+  itp:hasLongitudeTrainStation -1.1199988636E2;
+  itp:hasLatitudeTrainStation 3.344810237E1;
+  geo:hasGeometry <itp/POINT(-111.99988636_33.44810237)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-111.99988636_33.44810237)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-111.99988636 33.44810237)"^^geo:wktLiteral .
+
+itp:300_West_Main_Street_Mesa a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "300_West_Main_Street_Mesa";
+  itp:hasNameTrainStation "Country Club / Main St";
+  itp:hasAddressTrainStation "300 West Main Street"^^itp:string;
+  itp:TrainStationLocatedIn itp:Mesa;
+  itp:hasLongitudeTrainStation -1.118390359E2;
+  itp:hasLatitudeTrainStation 3.341511499E1;
+  geo:hasGeometry <itp/POINT(-111.8390359_33.41511499)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-111.8390359_33.41511499)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-111.8390359 33.41511499)"^^geo:wktLiteral .
+
+itp:1128_West_Main_Street_Mesa a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "1128_West_Main_Street_Mesa";
+  itp:hasNameTrainStation "Alma School / Main St";
+  itp:hasAddressTrainStation "1128 West Main Street"^^itp:string;
+  itp:TrainStationLocatedIn itp:Mesa;
+  itp:hasLongitudeTrainStation -1.1185554955E2;
+  itp:hasLatitudeTrainStation 3.341493761E1;
+  geo:hasGeometry <itp/POINT(-111.85554955_33.41493761)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-111.85554955_33.41493761)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-111.85554955 33.41493761)"^^geo:wktLiteral .
+
+itp:1166_West_Washington_Street_Tempe a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "1166_West_Washington_Street_Tempe";
+  itp:hasNameTrainStation "Priest Dr / Washington St";
+  itp:hasAddressTrainStation "1166 West Washington Street"^^itp:string;
+  itp:TrainStationLocatedIn itp:Tempe;
+  itp:hasLongitudeTrainStation -1.1195609026E2;
+  itp:hasLatitudeTrainStation 3.344200283E1;
+  geo:hasGeometry <itp/POINT(-111.95609026_33.44200283)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-111.95609026_33.44200283)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-111.95609026 33.44200283)"^^geo:wktLiteral .
+
+itp:1004_North_Central_Avenue_Phoenix a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "1004_North_Central_Avenue_Phoenix";
+  itp:hasNameTrainStation "Roosevelt / Central Ave";
+  itp:hasAddressTrainStation "1004 North Central Avenue"^^itp:string;
+  itp:TrainStationLocatedIn itp:Phoenix;
+  itp:hasLongitudeTrainStation -1.1207406165E2, -1.1207385086E2;
+  itp:hasLatitudeTrainStation 3.345938818E1, 3.345934915E1;
+  geo:hasGeometry <itp/POINT(-112.07406165_33.45938818)_Geometry>, <itp/POINT(-112.07385086_33.45934915)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-112.07406165_33.45938818)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-112.07406165 33.45938818)"^^geo:wktLiteral .
+
+itp:77_West_Camelback_Road_Phoenix a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "77_West_Camelback_Road_Phoenix";
+  itp:hasNameTrainStation "Central Ave / Camelback";
+  itp:hasAddressTrainStation "77 West Camelback Road"^^itp:string;
+  itp:TrainStationLocatedIn itp:Phoenix;
+  itp:hasLongitudeTrainStation -1.120753075E2;
+  itp:hasLatitudeTrainStation 3.350866627E1;
+  geo:hasGeometry <itp/POINT(-112.0753075_33.50866627)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-112.0753075_33.50866627)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-112.0753075 33.50866627)"^^geo:wktLiteral .
+
+itp:1855_West_Camelback_Road__Phoenix a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "1855_West_Camelback_Road__Phoenix";
+  itp:hasNameTrainStation "19th Ave / Camelback";
+  itp:hasAddressTrainStation "1855 West Camelback Road "^^itp:string;
+  itp:TrainStationLocatedIn itp:Phoenix;
+  itp:hasLongitudeTrainStation -1.1209880709E2;
+  itp:hasLatitudeTrainStation 3.350954307E1;
+  geo:hasGeometry <itp/POINT(-112.09880709_33.50954307)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-112.09880709_33.50954307)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-112.09880709 33.50954307)"^^geo:wktLiteral .
+
+itp:5645_North_19th_Ave_Phoenix a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "5645_North_19th_Ave_Phoenix";
+  itp:hasNameTrainStation "Montebello / 19th Ave";
+  itp:hasAddressTrainStation "5645 North 19th Ave"^^itp:string;
+  itp:TrainStationLocatedIn itp:Phoenix;
+  itp:hasLongitudeTrainStation -1.1209973101E2;
+  itp:hasLatitudeTrainStation 3.352059185E1;
+  geo:hasGeometry <itp/POINT(-112.09973101_33.52059185)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-112.09973101_33.52059185)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-112.09973101 33.52059185)"^^geo:wktLiteral .
+
+itp:705_West_Camelback_Road_Phoenix a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "705_West_Camelback_Road_Phoenix";
+  itp:hasNameTrainStation "7th Ave / Camelback";
+  itp:hasAddressTrainStation "705 West Camelback Road"^^itp:string;
+  itp:TrainStationLocatedIn itp:Phoenix;
+  itp:hasLongitudeTrainStation -1.1208333617E2;
+  itp:hasLatitudeTrainStation 3.350930817E1;
+  geo:hasGeometry <itp/POINT(-112.08333617_33.50930817)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-112.08333617_33.50930817)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-112.08333617 33.50930817)"^^geo:wktLiteral .
+
+itp:4111_North_Central_Avenue_Phoenix a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "4111_North_Central_Avenue_Phoenix";
+  itp:hasNameTrainStation "Indian School / Central Ave";
+  itp:hasAddressTrainStation "4111 North Central Avenue"^^itp:string;
+  itp:TrainStationLocatedIn itp:Phoenix;
+  itp:hasLongitudeTrainStation -1.1207378742E2;
+  itp:hasLatitudeTrainStation 3.349575409E1;
+  geo:hasGeometry <itp/POINT(-112.07378742_33.49575409)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-112.07378742_33.49575409)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-112.07378742 33.49575409)"^^geo:wktLiteral .
+
+itp:4411_North_Central_Avenue_Phoenix a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "4411_North_Central_Avenue_Phoenix";
+  itp:hasNameTrainStation "Campbell / Central Ave";
+  itp:hasAddressTrainStation "4411 North Central Avenue"^^itp:string;
+  itp:TrainStationLocatedIn itp:Phoenix;
+  itp:hasLongitudeTrainStation -1.1207378589E2;
+  itp:hasLatitudeTrainStation 3.350140989E1;
+  geo:hasGeometry <itp/POINT(-112.07378589_33.50140989)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-112.07378589_33.50140989)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-112.07378589 33.50140989)"^^geo:wktLiteral .
+
+itp:3335_North_Central_Avenue_Phoenix a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "3335_North_Central_Avenue_Phoenix";
+  itp:hasNameTrainStation "Osborn / Central Ave";
+  itp:hasAddressTrainStation "3335 North Central Avenue"^^itp:string;
+  itp:TrainStationLocatedIn itp:Phoenix;
+  itp:hasLongitudeTrainStation -1.1207380687E2;
+  itp:hasLatitudeTrainStation 3.34868613E1;
+  geo:hasGeometry <itp/POINT(-112.07380687_33.4868613)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-112.07380687_33.4868613)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-112.07380687 33.4868613)"^^geo:wktLiteral .
+
+itp:1822_East_Apache_Boulevard_Tempe a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "1822_East_Apache_Boulevard_Tempe";
+  itp:hasNameTrainStation "McClintock Dr / Apache Blvd";
+  itp:hasAddressTrainStation "1822 East Apache Boulevard"^^itp:string;
+  itp:TrainStationLocatedIn itp:Tempe;
+  itp:hasLongitudeTrainStation -1.1190824004E2;
+  itp:hasLatitudeTrainStation 3.341472587E1;
+  geo:hasGeometry <itp/POINT(-111.90824004_33.41472587)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-111.90824004_33.41472587)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-111.90824004 33.41472587)"^^geo:wktLiteral .
+
+itp:840_South_Rural_Road_Tempe a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "840_South_Rural_Road_Tempe";
+  itp:hasNameTrainStation "University Dr / Rural Rd";
+  itp:hasAddressTrainStation "840 South Rural Road"^^itp:string;
+  itp:TrainStationLocatedIn itp:Tempe;
+  itp:hasLongitudeTrainStation -1.1192690931E2;
+  itp:hasLatitudeTrainStation 3.342076255E1;
+  geo:hasGeometry <itp/POINT(-111.92690931_33.42076255)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-111.92690931_33.42076255)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-111.92690931 33.42076255)"^^geo:wktLiteral .
+
+itp:2903_North_Central_Avenue_Phoenix a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "2903_North_Central_Avenue_Phoenix";
+  itp:hasNameTrainStation "Thomas / Central Ave";
+  itp:hasAddressTrainStation "2903 North Central Avenue"^^itp:string;
+  itp:TrainStationLocatedIn itp:Phoenix;
+  itp:hasLongitudeTrainStation -1.1207377158E2;
+  itp:hasLatitudeTrainStation 3.348122748E1;
+  geo:hasGeometry <itp/POINT(-112.07377158_33.48122748)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-112.07377158_33.48122748)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-112.07377158 33.48122748)"^^geo:wktLiteral .
+
+itp:2325_North_Central_Avenue_Phoenix a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "2325_North_Central_Avenue_Phoenix";
+  itp:hasNameTrainStation "Encanto / Central Ave";
+  itp:hasAddressTrainStation "2325 North Central Avenue"^^itp:string;
+  itp:TrainStationLocatedIn itp:Phoenix;
+  itp:hasLongitudeTrainStation -1.1207381505E2;
+  itp:hasLatitudeTrainStation 3.347366706E1;
+  geo:hasGeometry <itp/POINT(-112.07381505_33.47366706)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-112.07381505_33.47366706)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-112.07381505 33.47366706)"^^geo:wktLiteral .
+
+itp:1502_North_Central_Avenue_Phoenix a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "1502_North_Central_Avenue_Phoenix";
+  itp:hasNameTrainStation "McDowell / Central Ave";
+  itp:hasAddressTrainStation "1502 North Central Avenue"^^itp:string;
+  itp:TrainStationLocatedIn itp:Phoenix;
+  itp:hasLongitudeTrainStation -1.1207382072E2;
+  itp:hasLatitudeTrainStation 3.346472524E1;
+  geo:hasGeometry <itp/POINT(-112.07382072_33.46472524)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-112.07382072_33.46472524)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-112.07382072 33.46472524)"^^geo:wktLiteral .
+
+itp:220_East_5th_Street_Tempe a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "220_East_5th_Street_Tempe";
+  itp:hasNameTrainStation "Veterans Way / College Ave";
+  itp:hasAddressTrainStation "220 East 5th Street"^^itp:string;
+  itp:TrainStationLocatedIn itp:Tempe;
+  itp:hasLongitudeTrainStation -1.119359264E2;
+  itp:hasLatitudeTrainStation 3.342612828E1;
+  geo:hasGeometry <itp/POINT(-111.9359264_33.42612828)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-111.9359264_33.42612828)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-111.9359264 33.42612828)"^^geo:wktLiteral .
+
+itp:4_North_Central_Avenue_Phoenix a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "4_North_Central_Avenue_Phoenix";
+  itp:hasNameTrainStation "Washington / Central Ave";
+  itp:hasAddressTrainStation "4 North Central Avenue"^^itp:string;
+  itp:TrainStationLocatedIn itp:Phoenix;
+  itp:hasLongitudeTrainStation -1.1207389472E2;
+  itp:hasLatitudeTrainStation 3.344888009E1;
+  geo:hasGeometry <itp/POINT(-112.07389472_33.44888009)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-112.07389472_33.44888009)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-112.07389472 33.44888009)"^^geo:wktLiteral .
+
+itp:304_North_Central_Avenue_Phoenix a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "304_North_Central_Avenue_Phoenix";
+  itp:hasNameTrainStation "Van Buren / Central Ave";
+  itp:hasAddressTrainStation "304 North Central Avenue"^^itp:string;
+  itp:TrainStationLocatedIn itp:Phoenix;
+  itp:hasLongitudeTrainStation -1.1207392841E2;
+  itp:hasLatitudeTrainStation 3.345191463E1;
+  geo:hasGeometry <itp/POINT(-112.07392841_33.45191463)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-112.07392841_33.45191463)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-112.07392841 33.45191463)"^^geo:wktLiteral .
+
+itp:303_North_1st_Avenue_Phoenix a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "303_North_1st_Avenue_Phoenix";
+  itp:hasNameTrainStation "Van Buren / 1st Ave";
+  itp:hasAddressTrainStation "303 North 1st Avenue"^^itp:string;
+  itp:TrainStationLocatedIn itp:Phoenix;
+  itp:hasLongitudeTrainStation -1.1207509158E2;
+  itp:hasLatitudeTrainStation 3.345192574E1;
+  geo:hasGeometry <itp/POINT(-112.07509158_33.45192574)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-112.07509158_33.45192574)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-112.07509158 33.45192574)"^^geo:wktLiteral .
+
+itp:1830_West_Main_Street_Mesa a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "1830_West_Main_Street_Mesa";
+  itp:hasNameTrainStation "Sycamore / Main St";
+  itp:hasAddressTrainStation "1830 West Main Street"^^itp:string;
+  itp:TrainStationLocatedIn itp:Mesa;
+  itp:hasLongitudeTrainStation -1.1187089124E2;
+  itp:hasLatitudeTrainStation 3.341485085E1;
+  geo:hasGeometry <itp/POINT(-111.87089124_33.41485085)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-111.87089124_33.41485085)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-111.87089124 33.41485085)"^^geo:wktLiteral .
+
+itp:2338_East_Apache_Boulevard_Tempe a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "2338_East_Apache_Boulevard_Tempe";
+  itp:hasNameTrainStation "Price-101 / Apache Blvd";
+  itp:hasAddressTrainStation "2338 East Apache Boulevard"^^itp:string;
+  itp:TrainStationLocatedIn itp:Tempe;
+  itp:hasLongitudeTrainStation -1.1188808677E2;
+  itp:hasLatitudeTrainStation 3.341481344E1;
+  geo:hasGeometry <itp/POINT(-111.88808677_33.41481344)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-111.88808677_33.41481344)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-111.88808677 33.41481344)"^^geo:wktLiteral .
+
+itp:1964_East_Apache_Boulevard_Tempe a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "1964_East_Apache_Boulevard_Tempe";
+  itp:hasNameTrainStation "Smith-Martin / Apache Blvd";
+  itp:hasAddressTrainStation "1964 East Apache Boulevard"^^itp:string;
+  itp:TrainStationLocatedIn itp:Tempe;
+  itp:hasLongitudeTrainStation -1.1190076583E2;
+  itp:hasLatitudeTrainStation 3.341478347E1;
+  geo:hasGeometry <itp/POINT(-111.90076583_33.41478347)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-111.90076583_33.41478347)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-111.90076583 33.41478347)"^^geo:wktLiteral .
+
+itp:2411_East_Washington_Street_Phoenix a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "2411_East_Washington_Street_Phoenix";
+  itp:hasNameTrainStation "24th St / Washington";
+  itp:hasAddressTrainStation "2411 East Washington Street"^^itp:string;
+  itp:TrainStationLocatedIn itp:Phoenix;
+  itp:hasLongitudeTrainStation -1.1202928853E2;
+  itp:hasLatitudeTrainStation 3.344822322E1;
+  geo:hasGeometry <itp/POINT(-112.02928853_33.44822322)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-112.02928853_33.44822322)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-112.02928853 33.44822322)"^^geo:wktLiteral .
+
+itp:2416_East_Jefferson_St_Phoenix a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "2416_East_Jefferson_St_Phoenix";
+  itp:hasNameTrainStation "24th St / Jefferson";
+  itp:hasAddressTrainStation "2416 East Jefferson St"^^itp:string;
+  itp:TrainStationLocatedIn itp:Phoenix;
+  itp:hasLongitudeTrainStation -1.1202928117E2;
+  itp:hasLatitudeTrainStation 3.344719506E1;
+  geo:hasGeometry <itp/POINT(-112.02928117_33.44719506)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-112.02928117_33.44719506)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-112.02928117 33.44719506)"^^geo:wktLiteral .
+
+<itp/POINT(-112.07385086_33.45934915)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-112.07385086 33.45934915)"^^geo:wktLiteral .
+
+itp:270_East_Washington_Street_Phoenix a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "270_East_Washington_Street_Phoenix";
+  itp:hasNameTrainStation "3rd St / Washington";
+  itp:hasAddressTrainStation "270 East Washington Street"^^itp:string;
+  itp:TrainStationLocatedIn itp:Phoenix;
+  itp:hasLongitudeTrainStation -1.1207061854E2;
+  itp:hasLatitudeTrainStation 3.344831856E1;
+  geo:hasGeometry <itp/POINT(-112.07061854_33.44831856)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-112.07061854_33.44831856)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-112.07061854 33.44831856)"^^geo:wktLiteral .
+
+itp:1135_East_Washington_Street_Phoenix a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "1135_East_Washington_Street_Phoenix";
+  itp:hasNameTrainStation "12th St / Washington";
+  itp:hasAddressTrainStation "1135 East Washington Street"^^itp:string;
+  itp:TrainStationLocatedIn itp:Phoenix;
+  itp:hasLongitudeTrainStation -1.1205721163E2;
+  itp:hasLatitudeTrainStation 3.344821975E1;
+  geo:hasGeometry <itp/POINT(-112.05721163_33.44821975)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-112.05721163_33.44821975)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-112.05721163 33.44821975)"^^geo:wktLiteral .
+
+itp:333_East_Jefferson_Street_Phoenix a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "333_East_Jefferson_Street_Phoenix";
+  itp:hasNameTrainStation "3rd St / Jefferson";
+  itp:hasAddressTrainStation "333 East Jefferson Street"^^itp:string;
+  itp:TrainStationLocatedIn itp:Phoenix;
+  itp:hasLongitudeTrainStation -1.1206931138E2;
+  itp:hasLatitudeTrainStation 3.344630408E1;
+  geo:hasGeometry <itp/POINT(-112.06931138_33.44630408)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-112.06931138_33.44630408)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-112.06931138 33.44630408)"^^geo:wktLiteral .
+
+itp:70_South_1st_Avenue_Phoenix a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "70_South_1st_Avenue_Phoenix";
+  itp:hasNameTrainStation "Jefferson / 1st Ave";
+  itp:hasAddressTrainStation "70 South 1st Avenue"^^itp:string;
+  itp:TrainStationLocatedIn itp:Phoenix;
+  itp:hasLongitudeTrainStation -1.1207520165E2;
+  itp:hasLatitudeTrainStation 3.344777443E1;
+  geo:hasGeometry <itp/POINT(-112.07520165_33.44777443)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-112.07520165_33.44777443)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-112.07520165 33.44777443)"^^geo:wktLiteral .
+
+<itp/POINT(-111.97474093_33.44692976)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-111.97474093 33.44692976)"^^geo:wktLiteral .
+
+<itp/POINT(-111.8049355_33.4152378)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-111.8049355 33.4152378)"^^geo:wktLiteral .
+
+<itp/POINT(-111.78902598_33.41537564)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-111.78902598 33.41537564)"^^geo:wktLiteral .
+
+itp:1228_East_Jefferson_Street_Phoenix a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "1228_East_Jefferson_Street_Phoenix";
+  itp:hasNameTrainStation "12th St / Jefferson";
+  itp:hasAddressTrainStation "1228 East Jefferson Street"^^itp:string;
+  itp:TrainStationLocatedIn itp:Phoenix;
+  itp:hasLongitudeTrainStation -1.1205565961E2;
+  itp:hasLatitudeTrainStation 3.344722879E1;
+  geo:hasGeometry <itp/POINT(-112.05565961_33.44722879)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-112.05565961_33.44722879)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-112.05565961 33.44722879)"^^geo:wktLiteral .
+
+itp:424_East_Main_Street_Mesa a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "424_East_Main_Street_Mesa";
+  itp:hasNameTrainStation "Mesa Dr / Main St";
+  itp:hasAddressTrainStation "424 East Main Street"^^itp:string;
+  itp:TrainStationLocatedIn itp:Mesa;
+  itp:hasLongitudeTrainStation -1.1182219142E2;
+  itp:hasLatitudeTrainStation 3.341507829E1;
+  geo:hasGeometry <itp/POINT(-111.82219142_33.41507829)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-111.82219142_33.41507829)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-111.82219142 33.41507829)"^^geo:wktLiteral .
+
+itp:1402_East_Apache_Boulevard_Tempe a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "1402_East_Apache_Boulevard_Tempe";
+  itp:hasNameTrainStation "Dorsey Ln / Apache Blvd";
+  itp:hasAddressTrainStation "1402 East Apache Boulevard"^^itp:string;
+  itp:TrainStationLocatedIn itp:Tempe;
+  itp:hasLongitudeTrainStation -1.1191688132E2;
+  itp:hasLatitudeTrainStation 3.341476037E1;
+  geo:hasGeometry <itp/POINT(-111.91688132_33.41476037)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-111.91688132_33.41476037)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-111.91688132 33.41476037)"^^geo:wktLiteral .
+
+<itp/POINT(-111.916891_33.41476)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-111.916891 33.41476)"^^geo:wktLiteral .
+
+<itp/POINT(-111.925945_33.414752)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-111.925945 33.414752)"^^geo:wktLiteral .
+
+<itp/POINT(-111.929116_33.414729)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-111.929116 33.414729)"^^geo:wktLiteral .
+
+<itp/POINT(-111.934806_33.414684)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-111.934806 33.414684)"^^geo:wktLiteral .
+
+<itp/POINT(-111.942385_33.42257)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-111.942385 33.42257)"^^geo:wktLiteral .
+
+<itp/POINT(-111.939994_33.424871)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-111.939994 33.424871)"^^geo:wktLiteral .
+
+<itp/POINT(-111.939973_33.421102)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-111.939973 33.421102)"^^geo:wktLiteral .
+
+<itp/POINT(-111.939934_33.417718)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-111.939934 33.417718)"^^geo:wktLiteral .
+
+<itp/POINT(-111.943358_33.425354)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-111.943358 33.425354)"^^geo:wktLiteral .
+
+<itp/POINT(-111.942855_33.427465)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-111.942855 33.427465)"^^geo:wktLiteral .
+
+itp:50_West_3rd_Street_Tempe a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "50_West_3rd_Street_Tempe";
+  itp:hasNameTrainStation "Mill Ave / 3rd St";
+  itp:hasAddressTrainStation "50 West 3rd Street"^^itp:string;
+  itp:TrainStationLocatedIn itp:Tempe;
+  itp:hasLongitudeTrainStation -1.1194068005E2;
+  itp:hasLatitudeTrainStation 3.34275021E1;
+  geo:hasGeometry <itp/POINT(-111.94068005_33.4275021)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-111.94068005_33.4275021)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-111.94068005 33.4275021)"^^geo:wktLiteral .
+
+<itp/POINT(-111.940008_33.427516)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-111.940008 33.427516)"^^geo:wktLiteral .
+
+<itp/POINT(-111.937517_33.43043)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-111.937517 33.43043)"^^geo:wktLiteral .
+
+<itp/POINT(-111.932264_33.429375)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-111.932264 33.429375)"^^geo:wktLiteral .
+
+<itp/POINT(-112.11225563_33.57305374)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-112.11225563 33.57305374)"^^geo:wktLiteral .
+
+<itp/POINT(-112.11130263_33.56755303)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-112.11130263 33.56755303)"^^geo:wktLiteral .
+
+itp:9830_N_Metro_Pkwy_East_Phoenix a itp:TrainStation, geo:Feature;
+  itp:hasRailStationID "9830_N_Metro_Pkwy_East_Phoenix";
+  itp:hasNameTrainStation "Metro Parkway";
+  itp:hasAddressTrainStation "9830 N Metro Pkwy East"^^itp:string;
+  itp:TrainStationLocatedIn itp:Phoenix;
+  itp:hasLongitudeTrainStation -1.1211758738E2;
+  itp:hasLatitudeTrainStation 3.35767664E1;
+  geo:hasGeometry <itp/POINT(-112.11758738_33.5767664)_Geometry>;
+  itp:TrainStationStatus "In Operation" .
+
+<itp/POINT(-112.11758738_33.5767664)_Geometry> a geo:Geometry;
+  geo:asWKT "POINT(-112.11758738 33.5767664)"^^geo:wktLiteral .
