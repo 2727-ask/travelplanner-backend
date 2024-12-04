@@ -42,105 +42,90 @@
             overflow: hidden;
         }
 
-        .card .emoji {
-            font-size: 32px;
-            position: absolute;
-            top: 15px;
-            right: 15px;
+        #input-form {
+            text-align: center;
+            margin-bottom: 20px;
         }
 
-        .card h2 {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #333;
-        }
-
-        .card p {
-            margin: 5px 0;
+        #input-form input,
+        #input-form select,
+        #input-form button {
+            margin: 5px;
+            padding: 8px;
             font-size: 14px;
-            line-height: 1.6;
-        }
-
-        .card .highlight {
-            font-weight: 600;
-            color: #ff5722;
-        }
-
-        .arrow {
-            margin: 10px 0;
-            font-size: 24px;
-            color: #bbb;
         }
     </style>
 </head>
 
 <body>
     <h1>Today's Plan</h1>
+
+    <div id="input-form">
+        <input type="number" id="latitude" placeholder="Latitude" />
+        <input type="number" id="longitude" placeholder="Longitude" />
+        <input type="number" id="max-distance" placeholder="Max Distance (meters)" />
+        <input type="number" id="rating-threshold" placeholder="Rating Threshold (0-5)" step="0.1" />
+        <input type="text" id="restaurant-type" placeholder="Restaurant Types (comma-separated)" />
+        <input type="text" id="interests" placeholder="Interests (comma-separated)" />
+        <input type="number" id="result-limit" placeholder="Result Limit" />
+        <button onclick="startItinerary()">Generate Itinerary</button>
+    </div>
+
     <div id="itinerary-container"></div>
 
     <script>
-        const ws = new WebSocket("ws://localhost:8000/ws/itinerary");
+        let ws;
 
-        ws.onopen = () => {
-            console.log("Connected to the WebSocket server");
-        };
+        function startItinerary() {
+            const latitude = 33.4092
+            const longitude = -111.9237
+            const maxDistance = parseInt(document.getElementById("max-distance").value) || 1000;
+            const ratingThreshold = parseFloat(document.getElementById("rating-threshold").value) || 3.5;
+            const restaurantType = document.getElementById("restaurant-type").value.split(",").map(type => type.trim());
+            const interests = document.getElementById("interests").value.split(",").map(interest => interest.trim());
+            const resultLimit = parseInt(document.getElementById("result-limit").value) || 10;
 
-        ws.onmessage = (event) => {
-            const itineraryContainer = document.getElementById("itinerary-container");
+            const requestData = {
+                latitude,
+                longitude,
+                max_distance: maxDistance,
+                rating_threshold: ratingThreshold,
+                restaurant_type: restaurantType,
+                interests: interests,
+                result_limit: resultLimit
+            };
 
-            // Parse the event data
-            const eventData = JSON.parse(event.data);
+            ws = new WebSocket("ws://localhost:8000/ws/itinerary");
 
-            // Create card container for the itinerary item
-            const itemContainer = document.createElement("div");
-            itemContainer.className = "itinerary-item";
+            ws.onopen = () => {
+                console.log("Connected to WebSocket");
+                ws.send(JSON.stringify(requestData));
+            };
 
-            // Create the card
-            const card = document.createElement("div");
-            card.className = "card";
+            ws.onmessage = (event) => {
+                const itineraryContainer = document.getElementById("itinerary-container");
+                const eventData = JSON.parse(event.data);
 
-            // Determine the type of data and populate the card
-            if (eventData.Restaurant) {
-                // Data for a restaurant
+                const itemContainer = document.createElement("div");
+                itemContainer.className = "itinerary-item";
+
+                const card = document.createElement("div");
+                card.className = "card";
+
                 card.innerHTML = `
-                    <div class="emoji">🍴</div>
                     <h2>${eventData.name}</h2>
-                    <p><strong>Type:</strong> ${eventData.Type.split('|').join(', ')}</p>
-                    <p><strong>Address:</strong> ${eventData.Address}</p>
-                    <p><strong>Rating:</strong> <span class="highlight">⭐ ${eventData.Rating}</span></p>
-                    <p><strong>Current Food Interval:</strong> ${eventData["Current Food Interval"]}</p>
-                    <p><strong>Time:</strong> ${eventData.TIME_NOW}</p>
+                    <p><strong>Distance:</strong> ${eventData.distance} meters</p>
+                    <p><strong>Rating:</strong> ${eventData.rating}</p>
                 `;
-            } else if (eventData.place) {
-                // Data for a tourist place
-                card.innerHTML = `
-                    <div class="emoji">🏞️</div>
-                    <h2>${eventData.name}</h2>
-                    <p><strong>Type:</strong> ${eventData.type}</p>
-                    <p><strong>Distance:</strong> <span class="highlight">${parseFloat(eventData.distance).toFixed(2)} meters</span></p>
-                    <p><strong>Time:</strong> ${eventData.TIME_NOW}</p>
-                `;
-            }
 
-            // Append the card to the item container
-            itemContainer.appendChild(card);
+                itemContainer.appendChild(card);
+                itineraryContainer.appendChild(itemContainer);
+            };
 
-            // Add an arrow if there are already items in the itinerary
-            if (itineraryContainer.children.length > 0) {
-                const arrow = document.createElement("div");
-                arrow.className = "arrow";
-                arrow.innerHTML = "⬇️";
-                itineraryContainer.appendChild(arrow);
-            }
-
-            // Append the item container to the itinerary container
-            itineraryContainer.appendChild(itemContainer);
-        };
-
-        ws.onclose = () => {
-            console.log("Connection closed");
-        };
+            ws.onclose = () => {
+                console.log("Connection closed");
+            };
+        }
     </script>
 </body>
 

@@ -1,34 +1,47 @@
-from fastapi import FastAPI, WebSocket
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect
+from pydantic import BaseModel
 from services.itenaryService import IternaryService
 from services.pointOfInterestService import PointOfInterestService
 from models.VehicleEnum import Vehicle
 from dotenv import load_dotenv
 from concurrent.futures import ThreadPoolExecutor
 import os
+import asyncio
+import re
+from fastapi.middleware.cors import CORSMiddleware
 
 load_dotenv()
 
 executor = ThreadPoolExecutor(max_workers=5)
-# Configuration and initialization
-sparql_endpoint = "http://localhost:7200/repositories/yelp-mapping-aditya"
-current_location = "Red_Mango_420_S_Mill_Ave_Ste_107"
-max_distance = 40000
-rating_threshold = 3
-restaurant_type = ["Mexican", "Italian"]
-interests = ["Park", "Museum", "Lake", "Summit"]
-result_limit = 10
-latitude = 33.424564
-longitude = -111.928001
+sparql_endpoint = os.getenv("SPARQL_ENDPOINT")
+print(sparql_endpoint)
 
 app = FastAPI()
 
-# Helper function to print values
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # React's development server URL
+    allow_credentials=True,
+    allow_methods=["*"],  # Allow all HTTP methods
+    allow_headers=["*"],  # Allow all headers
+)
+
+# Pydantic model for parsing WebSocket request data
+class ItineraryRequest(BaseModel):
+    max_distance: int
+    rating_threshold: float
+    restaurant_type: list[str]
+    interests: list[str]
+    result_limit: int
+    latitude: float
+    longitude: float
+
+# Helper functions
 def print_values(data):
     print("-" * 30)
     for key, value in data.items():
         print(f"{key}: {value}")
 
-# Sorting the places based on custom order
 def place_schedular(places):
     custom_order = {
         "Summit": 0,
@@ -44,27 +57,18 @@ def place_schedular(places):
     sorted_places = sorted(places, key=lambda place: custom_order.get(place, float('inf')))
     return sorted_places
 
-import re
-
-# Extract coordinates from URL
 def getCoordinates(url):
     match = re.search(r"POINT\((-?\d+\.\d+)_(-?\d+\.\d+)\)", url)
-
     if match:
         longitude = match.group(1)
         latitude = match.group(2)
-        return {
-            "longitude": longitude,
-            "latitude": latitude
-        }
-    else:
-        return None
+        return {"longitude": longitude, "latitude": latitude}
+    return None
 
 async def run_blocking_io(func, *args):
     loop = asyncio.get_event_loop()
     return await loop.run_in_executor(executor, func, *args)
 
-# Function to generate itinerary and push data to WebSocket
 async def generate_itinerary(ws, schedule_skeleton, interests, iternary, latitude, longitude):
     coordinates = None
     visitedPlaces = []
@@ -74,43 +78,48 @@ async def generate_itinerary(ws, schedule_skeleton, interests, iternary, latitud
             food_place = await run_blocking_io(iternary.getCurrentRestaurantBasedOnCoordinates, latitude, longitude)
             coordinates = getCoordinates(food_place.get('Geom'))
             print_values(food_place)
-            # Send the food place data via WebSocket
             await ws.send_json(food_place)
         else:
-            # Traverse interests dynamically
             for interest in interests:
                 if interest not in visitedInterest:
-                    current_suggestion = [interest]  # Send one interest at a time
-                    poi_place = await run_blocking_io(iternary.getPOI, coordinates.get('latitude'), coordinates.get('longitude'), current_suggestion, visitedPlaces)
+                    poi_place = await run_blocking_io(iternary.getPOI, coordinates.get('latitude'), coordinates.get('longitude'), [interest], visitedPlaces)
                     if poi_place:
                         coordinates = getCoordinates(poi_place.get('geom'))
                         visitedPlaces.append(f"itp:{poi_place.get('place').split('itp#')[1]}")
                         visitedInterest.append(interest)
                         print_values(poi_place)
-                        # Send the POI place data via WebSocket
                         await ws.send_json(poi_place)
-                        break  # Found a POI, so move to the next item in the schedule
+                        break
                     else:
                         print(f"No POI found for interest: {interest}. Marking as unvisited.")
-                        # Send unvisited data via WebSocket
                         await ws.send_text(f"No POI found for interest: {interest}. Marking as unvisited.")
 
 # WebSocket endpoint to stream itinerary
-import time
-import asyncio
 @app.websocket("/ws/itinerary")
 async def websocket_endpoint(ws: WebSocket):
     await ws.accept()
-    await asyncio.sleep(2)
+    try:
+        # Receive the request body as JSON
+        data = await ws.receive_json()
+        request = ItineraryRequest(**data)
 
-    
-    schedule_skeleton = ('food', 'place', 'food', 'place', 'food', 'place', 'food')
-    interests = place_schedular(["Park", "Museum", "Lake", "Summit"])
-    iternary = IternaryService(current_location=current_location, preferences=restaurant_type, rating_threshold=rating_threshold,
-                               radius=max_distance, travelTime=8, vehicle=Vehicle.CAR, interests=interests)
-    
-    # Generate the itinerary and send data in real-time
-    await generate_itinerary(ws, schedule_skeleton, interests, iternary, latitude, longitude)
+        schedule_skeleton = ('food', 'place', 'food', 'place', 'food', 'place', 'food')
+        interests = place_schedular(request.interests)
 
-    await ws.close()
+        iternary = IternaryService(
+            preferences=request.restaurant_type,
+            rating_threshold=request.rating_threshold,
+            radius=request.max_distance,
+            travelTime=8,
+            vehicle=Vehicle.CAR,
+            interests=interests
+        )
 
+        await generate_itinerary(ws, schedule_skeleton, interests, iternary, request.latitude, request.longitude)
+    except WebSocketDisconnect:
+        print("WebSocket disconnected")
+    except Exception as e:
+        print(f"Error: {e}")
+        await ws.send_text(f"Error: {e}")
+    finally:
+        await ws.close()

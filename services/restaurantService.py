@@ -23,11 +23,16 @@ class RestaurantService:
             self.query = RestaurantQuerySchema(current_location=self.current_location,travel_radius=self.radius, rating_threshold=self.rating_threshold, restaurant_types=self.preferences, visited_restaurants=self.visited_restaurant, result_limit=self.limit).getQuerySchema()
         
     def getRestaurants(self):
-        self.sparql = SPARQLService(sparql_endpoint=os.getenv("SPARQL_ENDPOINT")).getSparqlWrapper()
+        print("Geting Restaurants")
+        self.sparql = SPARQLService(sparql_endpoint=os.getenv("SPARQL_ENDPOINT"), username=os.getenv("USERNAME"), password=os.getenv("PASSWORD")).getSparqlWrapper()
         self.sparql.setQuery(self.query)
+        print("Query is",self.query)
         restaurant_data = []
         try:
+            print("SPARQL", self.sparql.query())
+
             results = self.sparql.query().convert()
+            print("Results", results)
             for result in results["results"]["bindings"]:
                 restaurant_info = {
                     "Restaurant": result['restaurant']['value'],
@@ -35,7 +40,7 @@ class RestaurantService:
                     "Type": result['type']['value'],
                     'distance': result['distance']['value'],
                     "Address": result['address']['value'],
-                    "Rating": result['rating']['value'],
+                    "rating": result['rating']['value'],
                     "Geom": result['geom']['value']
                 }
                 restaurant_data.append(restaurant_info)

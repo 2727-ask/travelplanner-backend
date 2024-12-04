@@ -9,10 +9,11 @@ class POIQuerySchema:
 
     def getQuerySchema(self):
         prefixes = """
-        PREFIX geo: <http://www.opengis.net/ont/geosparql#>
-        PREFIX geof: <http://www.opengis.net/def/function/geosparql/>
-        PREFIX units: <http://www.opengis.net/def/uom/OGC/1.0/>
-        PREFIX itp: <http://www.semanticweb.org/team11/ontologies/2024/10/itp#>
+            PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+            PREFIX geof: <http://www.opengis.net/def/function/geosparql/>
+            PREFIX units: <http://www.opengis.net/def/uom/OGC/1.0/>
+            PREFIX itp: <http://www.semanticweb.org/team11/ontologies/2024/10/itp#>
+            PREFIX gnis: <http://gnis-ld.org/lod/gnis/ontology/>
         """
         
         # Dynamic feature filter creation
@@ -33,29 +34,27 @@ class POIQuerySchema:
             BIND(STRDT(CONCAT("POINT(", STR({self.longitude}), " ", STR({self.latitude}), ")"), geo:wktLiteral) AS ?currentWKT)
             
             # Find POIs (Points of Interest)
-            ?POI a geo:Feature ;
-                 geo:hasGeometry ?geom ;
-                 itp:hasFeatureName ?name ;
-                 itp:hasPOIClass ?type ;
-                 itp:inState ?state ;
-                 itp:inCounty ?county .
+                ?POI a geo:Feature ;
+                geo:hasGeometry ?geom ;
+                itp:hasFeatureName ?name ;
+                itp:hasPOIClass ?type;
+                gnis:State ?state;
+                itp:inCounty ?county .
             
-            # Retrieve the geometry of the POIs
-            ?geom geo:asWKT ?POIWKT .
-            
-            # Calculate the distance of the POIs
            
-            
             # Filter by feature types and distance
-            FILTER(({feature_filters}) && ?distance < {self.travel_radius})
+            FILTER(({feature_filters}))
             
             # Exclude visited places
             {visited_filter}
 
+            ?geom geo:asWKT ?POIWKT .
+
             BIND(geof:distance(?currentWKT, ?POIWKT, units:metre) AS ?distance)
+
+            FILTER(?distance < {self.travel_radius})
         }}
         ORDER BY ?distance
         LIMIT {self.result_limit}
         """
-        
         return prefixes + query

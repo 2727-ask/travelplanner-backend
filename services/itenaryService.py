@@ -5,11 +5,10 @@ from models.VehicleEnum import Vehicle
 import os
 
 class IternaryService:
-    def __init__(self, vehicle, travelTime, current_location, radius, rating_threshold, preferences, interests=[], current_timestamp='7:00'):
+    def __init__(self, vehicle, travelTime, radius, rating_threshold, preferences, interests=[], current_timestamp='7:00'):
         self.interests = interests
         self.vehicle = vehicle
         self.travelTime = travelTime
-        self.current_location = current_location
         self.radius = radius
         self.rating_threshold = rating_threshold
         self.preferences = preferences
@@ -31,11 +30,11 @@ class IternaryService:
     def find_best_restaurant(self, restaurants):
         # Convert all ratings to floats and distances to floats
         for restaurant in restaurants:
-            restaurant['Rating'] = float(restaurant['Rating'])
+            restaurant['rating'] = float(restaurant['rating'])
             restaurant['distance'] = float(restaurant['distance'])
         
         # Sort restaurants first by Rating (descending), then by Distance (ascending)
-        best_restaurant = sorted(restaurants, key=lambda x: (-x['Rating'], x['distance']))[0]
+        best_restaurant = sorted(restaurants, key=lambda x: (-x['rating'], x['distance']))[0]
         
         return best_restaurant    
 
@@ -47,60 +46,6 @@ class IternaryService:
         # Todo for other vehicles
         return 0
 
-    def getCurrentRestaurant(self):
-            self.destination = None
-            
-            # Get the current food interval based on the current state time
-            current_interval = self.get_food_interval(self.currentStateTimeStamp)
-            #print(f"Current Food Interval: {current_interval}")
-
-            # Combine the current interval and preferences for restaurant search
-            preference = [current_interval]
-            for p in self.preferences:
-                preference.append(p)
-            #print(f"Preferences: {preference}")
-
-            # Instantiate the RestaurantService to fetch the list of restaurants
-            resService = RestaurantService(
-                current_location=self.current_location, 
-                radius=self.radius, 
-                rating_threshold=self.rating_threshold, 
-                preferences=preference, 
-                visited_restaurant=self.visited_restaurant
-            )
-            
-            # Get the best restaurant from the list
-            destination = self.find_best_restaurant(resService.getRestaurants())
-            #print(f"Best Restaurant Found: {destination}")
-
-            # Add restaurant wait time and travel time to the current state timestamp
-            new_time = datetime.strptime(self.currentStateTimeStamp, "%H:%M") + \
-                    timedelta(hours=self.default_restaurant_wait_time) + \
-                    timedelta(hours=self.calculateTimeToReachDestination(destination['distance']))
-            
-            # Convert the new time back to the "HH:MM" string format
-            self.currentStateTimeStamp = new_time.strftime("%H:%M")
-            #print(f"TIME_NOW: {self.currentStateTimeStamp}")
-
-            # Update the remaining travel time
-            self.travelTime -= self.default_restaurant_wait_time + self.calculateTimeToReachDestination(destination['distance'])
-            #print(f"Remaining Travel Time: {self.travelTime} hours")
-
-            # Update the current location after visiting the restaurant
-            self.current_location = destination.get('Restaurant').split('itp#')[1]
-            #print(f"Updated Current Location: {self.current_location}")
-
-            self.visited_restaurant.append(self.current_location)
-
-            destination['CurrentFoodInterval'] = current_interval
-            destination['Preferences'] = self.preferences
-            destination['UpdatedCurrentStateTimeStamp'] = self.currentStateTimeStamp
-            destination['RemainingTravelTime'] = self.travelTime
-            destination['UpdatedCurrentLocation'] = self.current_location
-            destination['TimeToReachDestination'] = self.calculateTimeToReachDestination(destination['distance']) + self.time_buffer
-
-            # Return the best restaurant
-            return destination
         
     def getCurrentRestaurantBasedOnCoordinates(self, latitude, longitude):
             self.destination = None

@@ -9,7 +9,7 @@ import re
 load_dotenv()
 
 # Configuration and initialization
-sparql_endpoint = "http://localhost:7200/repositories/yelp-mapping-aditya"
+sparql_endpoint = os.getenv("SPARQL_ENDPOINT")
 current_location = "Red_Mango_420_S_Mill_Ave_Ste_107"
 max_distance = 40000
 rating_threshold = 3
