@@ -3,7 +3,7 @@ from SPARQLWrapper import SPARQLWrapper, JSON
 class SPARQLService:
     _instance = None  # Class-level variable to hold the singleton instance
 
-    def __new__(cls, sparql_endpoint, username, password):
+    def __new__(cls, sparql_endpoint, username=None, password=None):
         if cls._instance is None:
             cls._instance = super(SPARQLService, cls).__new__(cls)
             cls._instance.sparql_endpoint = sparql_endpoint
