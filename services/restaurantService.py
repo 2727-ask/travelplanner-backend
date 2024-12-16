@@ -27,8 +27,6 @@ class RestaurantService:
         self.sparql = SPARQLService(sparql_endpoint=os.getenv("SPARQL_ENDPOINT"), username=os.getenv("USERNAME"), password=os.getenv("PASSWORD")).getSparqlWrapper()
         self.sparql.setQuery(self.query)
         print("Query is",self.query)
-        results = self.sparql.query().convert()
-        print("Results", results)
         restaurant_data = []
         try:
             print("SPARQL", self.sparql.query())
