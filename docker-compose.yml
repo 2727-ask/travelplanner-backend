@@ -18,6 +18,9 @@ services:
       - USERNAME=aladeen
       - PASSORD=VeryNice
 
+    env_file:
+      - ./.env   
+
   graphdb:
     image: ontotext/graphdb:10.6.4
     ports:
