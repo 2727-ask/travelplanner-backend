@@ -23,7 +23,7 @@ class RestaurantService:
             self.query = RestaurantQuerySchema(current_location=self.current_location,travel_radius=self.radius, rating_threshold=self.rating_threshold, restaurant_types=self.preferences, visited_restaurants=self.visited_restaurant, result_limit=self.limit).getQuerySchema()
         
     def getRestaurants(self):
-        print("Geting Restaurants")
+        print("Geting Restaurants", os.getenv("SPARQL_ENDPOINT"))
         self.sparql = SPARQLService(sparql_endpoint=os.getenv("SPARQL_ENDPOINT"), username=os.getenv("USERNAME"), password=os.getenv("PASSWORD")).getSparqlWrapper()
         self.sparql.setQuery(self.query)
         print("Query is",self.query)
