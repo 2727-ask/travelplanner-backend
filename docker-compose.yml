@@ -10,6 +10,13 @@ services:
     environment:
       - PYTHONDONTWRITEBYTECODE=1
       - PYTHONUNBUFFERED=1
+      - SPARQL_ENDPOINT=http://82.197.93.235:7200/repositories/travelogger
+      - DEFAULT_LIMIT=10
+      - DEFAULT_RESTAURANT_WAITTIME=1.2 #hours
+      - TIME_BUFFER=2 #2 min time buffer
+      - DEFAULT_DESINATION_WAITTIME=3
+      - USERNAME=aladeen
+      - PASSORD=VeryNice
 
   graphdb:
     image: ontotext/graphdb:10.6.4
