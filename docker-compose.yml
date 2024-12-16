@@ -11,6 +11,14 @@ services:
       - PYTHONDONTWRITEBYTECODE=1
       - PYTHONUNBUFFERED=1
 
-    
+  graphdb:
+    image: ontotext/graphdb:10.6.4
+    ports:
+      - "7200:7200"
+    volumes:
+      - graphdb-data:/opt/graphdb/home
+    environment:
+      - JAVA_TOOL_OPTIONS=-Xms512m -Xmx2048m
 
-
+volumes:
+  graphdb-data:
