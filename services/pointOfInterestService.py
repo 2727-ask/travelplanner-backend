@@ -60,7 +60,7 @@ class PointOfInterestService:
             return []
         
     def getDestination(self):
-        self.sparql = SPARQLService(sparql_endpoint=os.getenv("SPARQL_ENDPOINT"),username=os.getenv("USERNAME"), password=os.getenv("PASSWORD")).getSparqlWrapper()
+        self.sparql = SPARQLService(sparql_endpoint=os.getenv("SPARQL_ENDPOINT")).getSparqlWrapper()
         self.sparql.setQuery(self.query)
         try:
             poi_data = []

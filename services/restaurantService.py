@@ -27,29 +27,31 @@ class RestaurantService:
         self.sparql = SPARQLService(sparql_endpoint=os.getenv("SPARQL_ENDPOINT"), username=os.getenv("USERNAME"), password=os.getenv("PASSWORD")).getSparqlWrapper()
         self.sparql.setQuery(self.query)
         print("Query is",self.query)
-        print(self.sparql)
+        results = self.sparql.query().convert()
+        print("Results", results)
         restaurant_data = []
         try:
             print("SPARQL", self.sparql.query())
-
             results = self.sparql.query().convert()
             print("Results", results)
-            for result in results["results"]["bindings"]:
-                restaurant_info = {
-                    "Restaurant": result['restaurant']['value'],
-                    "name": result['name']['value'],
-                    "Type": result['type']['value'],
-                    'distance': result['distance']['value'],
-                    "Address": result['address']['value'],
-                    "rating": result['rating']['value'],
-                    "Geom": result['geom']['value']
-                }
-                restaurant_data.append(restaurant_info)
-                print("Restaurant Data is", restaurant_data)
+            # for result in results["results"]["bindings"]:
+            #     restaurant_info = {
+            #         "Restaurant": result['restaurant']['value'],
+            #         "name": result['name']['value'],
+            #         "Type": result['type']['value'],
+            #         'distance': result['distance']['value'],
+            #         "Address": result['address']['value'],
+            #         "rating": result['rating']['value'],
+            #         "Geom": result['geom']['value']
+            #     }
+            #     restaurant_data.append(restaurant_info)
+            #     print("Restaurant Data is", restaurant_data)
             return restaurant_data    
         except Exception as e:
-            (f"An error occurred: {e}")
+            print(f"An error occurred: {e}")
             return []    
+
+        return []
            
 
 
