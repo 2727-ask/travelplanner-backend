@@ -34,24 +34,24 @@ class RestaurantService:
             print("SPARQL", self.sparql.query())
             results = self.sparql.query().convert()
             print("Results", results)
-            # for result in results["results"]["bindings"]:
-            #     restaurant_info = {
-            #         "Restaurant": result['restaurant']['value'],
-            #         "name": result['name']['value'],
-            #         "Type": result['type']['value'],
-            #         'distance': result['distance']['value'],
-            #         "Address": result['address']['value'],
-            #         "rating": result['rating']['value'],
-            #         "Geom": result['geom']['value']
-            #     }
-            #     restaurant_data.append(restaurant_info)
-            #     print("Restaurant Data is", restaurant_data)
+            for result in results["results"]["bindings"]:
+                restaurant_info = {
+                    "Restaurant": result['restaurant']['value'],
+                    "name": result['name']['value'],
+                    "Type": result['type']['value'],
+                    'distance': result['distance']['value'],
+                    "Address": result['address']['value'],
+                    "rating": result['rating']['value'],
+                    "Geom": result['geom']['value']
+                }
+                restaurant_data.append(restaurant_info)
+                print("Restaurant Data is", restaurant_data)
             return restaurant_data    
         except Exception as e:
             print(f"An error occurred: {e}")
             return []    
 
-        return []
+
            
 
 
